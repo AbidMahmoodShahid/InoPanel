@@ -12,8 +12,10 @@
     mc:Ignorable="d">
 
     <Grid>
+
         <controls:InoPanel
-            Margin="20"
+            Margin="10"
+            ElementMargin="15"
             Background="DarkGray"
             Columns="3">
 
@@ -28,6 +30,7 @@
             <Button>Button 9</Button>
 
         </controls:InoPanel>
+
     </Grid>
 
 </Window>
