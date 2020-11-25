@@ -21,14 +21,10 @@ namespace InoPanel
             set { SetValue(ColumnsProperty, value); }
         }
 
-        public static readonly DependencyProperty ElementMarginProperty =
-    DependencyProperty.Register(nameof(ElementMargin), typeof(double),
-        typeof(InoPanel), new FrameworkPropertyMetadata(2));
-        public double ElementMargin
-        {
-            get { return (int)GetValue(ElementMarginProperty); }
-            set { SetValue(ElementMarginProperty, value); }
-        }
+        //public double ElementMargin
+        //{
+
+        //}
 
         #endregion
 

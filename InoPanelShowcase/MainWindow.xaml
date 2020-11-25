@@ -16,6 +16,7 @@
             Margin="20"
             Background="DarkGray"
             Columns="3">
+
             <Button>Button 1</Button>
             <Button Width="100" Height="100">Button 2</Button>
             <Button>Button 3</Button>
@@ -25,6 +26,7 @@
             <Button>Button 7</Button>
             <Button>Button 8</Button>
             <Button>Button 9</Button>
+
         </controls:InoPanel>
     </Grid>
 
