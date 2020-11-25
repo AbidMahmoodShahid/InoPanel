@@ -17,17 +17,17 @@
             Margin="10"
             Background="DarkGray"
             Columns="3"
-            ElementMargin="15">
+            ElementMargin="0">
 
-            <Button>Button 1</Button>
-            <Button Width="100" Height="100">Button 2</Button>
-            <Button VerticalAlignment="Center">Button 3</Button>
-            <Button>Button 4</Button>
-            <Button HorizontalAlignment="Left">Button 5</Button>
-            <Button>Button 6</Button>
-            <Button>Button 7</Button>
-            <Button>Button 8</Button>
-            <Button>Button 9</Button>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 1</Button>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 2</Button>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 3</Button>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 4</Button>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 5</Button>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 6</Button>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 7</Button>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 8</Button>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 9</Button>
 
         </controls:InoPanel>
 

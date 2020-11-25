@@ -154,8 +154,6 @@ namespace InoPanel
             return arrangeRect;
         }
 
-        #region set element initial position
-
         private double PositionElementHorizontally(double Xo, double columnWidth, double elementWidth, HorizontalAlignment horizontalAlignment)
         {
             switch(horizontalAlignment)
@@ -190,10 +188,6 @@ namespace InoPanel
             }
         }
 
-        #endregion
-
-        #region set element size based on alignment
-
         private double ElementWidth(UIElement element, HorizontalAlignment horizontalAlignment, double columnWidth)
         {
             switch(horizontalAlignment)
@@ -215,8 +209,6 @@ namespace InoPanel
                     return element.DesiredSize.Height;
             }
         }
-
-        #endregion
 
         #endregion
     }
