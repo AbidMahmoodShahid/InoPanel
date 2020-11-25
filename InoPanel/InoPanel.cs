@@ -80,7 +80,7 @@ namespace InoPanel
 
             foreach (UIElement element in Children)
             {
-                Rect arrangeRect = SetElementOffset(currentHorizontalOffset, currentVerticalOffset, _rowHeightList[currentRow], _columnWidthList[currentColumn], element);
+                Rect arrangeRect = SetElementSizeAndPosition(currentHorizontalOffset, currentVerticalOffset, _rowHeightList[currentRow], _columnWidthList[currentColumn], element);
                 element.Arrange(arrangeRect);
 
                 // set current horizontal offset
@@ -95,9 +95,7 @@ namespace InoPanel
                     currentVerticalOffset += _rowHeightList[currentRow];
                     currentRow++;
                 }
-
             }
-
             return finalSize;
         }
 
@@ -112,7 +110,6 @@ namespace InoPanel
 
             if (currentColumn < 1)
                 _currentRowHeight = 0;
-
 
             element.Measure(availableSize);
 
@@ -131,16 +128,15 @@ namespace InoPanel
 
             // adjust panel width
             panelSize.Width = columnWidthList.Sum();
-
             adjustedPanelSize = new Size(panelSize.Width, panelSize.Height);
 
             return adjustedPanelSize;
         }
 
-        private Rect SetElementOffset(double currentHorizontalOffset, double currentVerticalOffset, double rowHeight, double columnWidth, UIElement element)
+        private Rect SetElementSizeAndPosition(double currentHorizontalOffset, double currentVerticalOffset, double rowHeight, double columnWidth, UIElement element)
         {
-            HorizontalAlignment horizontalAlignment = HorizontalAlignment.Stretch;
-            VerticalAlignment verticalAlignment = VerticalAlignment.Top;
+            HorizontalAlignment horizontalAlignment = ((Control)element).HorizontalAlignment;
+            VerticalAlignment verticalAlignment = ((Control)element).VerticalAlignment;
 
             // set horizontal offset
             double x = PositionElementHorizontally(currentHorizontalOffset, columnWidth, element.DesiredSize.Width, horizontalAlignment);
@@ -157,8 +153,6 @@ namespace InoPanel
             Rect arrangeRect = new Rect(x, y, elementWidth, elementHeight);
             return arrangeRect;
         }
-
-        #endregion
 
         #region set element initial position
 
@@ -198,7 +192,7 @@ namespace InoPanel
 
         #endregion
 
-        #region set element size
+        #region set element size based on alignment
 
         private double ElementWidth(UIElement element, HorizontalAlignment horizontalAlignment, double columnWidth)
         {
@@ -221,6 +215,8 @@ namespace InoPanel
                     return element.DesiredSize.Height;
             }
         }
+
+        #endregion
 
         #endregion
     }

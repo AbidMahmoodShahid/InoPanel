@@ -15,15 +15,15 @@
 
         <controls:InoPanel
             Margin="10"
-            ElementMargin="15"
             Background="DarkGray"
-            Columns="3">
+            Columns="3"
+            ElementMargin="15">
 
             <Button>Button 1</Button>
             <Button Width="100" Height="100">Button 2</Button>
-            <Button>Button 3</Button>
+            <Button VerticalAlignment="Center">Button 3</Button>
             <Button>Button 4</Button>
-            <Button>Button 5</Button>
+            <Button HorizontalAlignment="Left">Button 5</Button>
             <Button>Button 6</Button>
             <Button>Button 7</Button>
             <Button>Button 8</Button>
