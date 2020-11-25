@@ -1,0 +1,13 @@
+C:\Users\Mechlab\source\repos\InoPanel\InoPanel\obj\Debug\InoPanel.csprojAssemblyReference.cache
+C:\Users\Mechlab\source\repos\InoPanel\InoPanel\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Mechlab\source\repos\InoPanel\InoPanel\obj\Debug\InoPanel_MarkupCompile.cache
+C:\Users\Mechlab\source\repos\InoPanel\InoPanel\obj\Debug\InoPanel_MarkupCompile.lref
+C:\Users\Mechlab\source\repos\InoPanel\InoPanel\obj\Debug\InoPanel.dll
+C:\Users\Mechlab\source\repos\InoPanel\InoPanel\obj\Debug\InoPanel.pdb
+C:\Users\Mechlab\source\repos\InoPanel\InoPanel\bin\Debug\InoPanel.dll
+C:\Users\Mechlab\source\repos\InoPanel\InoPanel\bin\Debug\InoPanel.pdb
+C:\Users\Mechlab\source\repos\InoPanel\InoPanel\obj\Debug\Themes\Generic.baml
+C:\Users\Mechlab\source\repos\InoPanel\InoPanel\obj\Debug\InoPanel.g.resources
+C:\Users\Mechlab\source\repos\InoPanel\InoPanel\obj\Debug\InoPanel.Properties.Resources.resources
+C:\Users\Mechlab\source\repos\InoPanel\InoPanel\obj\Debug\InoPanel.csproj.GenerateResource.cache
+C:\Users\Mechlab\source\repos\InoPanel\InoPanel\obj\Debug\InoPanel.csproj.CoreCompileInputs.cache
