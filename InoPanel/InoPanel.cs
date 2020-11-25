@@ -10,6 +10,8 @@ namespace InoPanel
 {
     public class InoPanel : Panel
     {
+        #region dependancy properties
+
         public static readonly DependencyProperty ColumnsProperty = 
             DependencyProperty.Register(nameof(Columns), typeof(int),
                 typeof(InoPanel), new FrameworkPropertyMetadata(2));
@@ -19,10 +21,25 @@ namespace InoPanel
             set { SetValue(ColumnsProperty, value); }
         }
 
+        public static readonly DependencyProperty ElementMarginProperty =
+    DependencyProperty.Register(nameof(ElementMargin), typeof(double),
+        typeof(InoPanel), new FrameworkPropertyMetadata(2));
+        public double ElementMargin
+        {
+            get { return (int)GetValue(ElementMarginProperty); }
+            set { SetValue(ElementMarginProperty, value); }
+        }
+
+        #endregion
+
+        #region fields
+
         private Size _panelSize = new Size(0, 0);
         private double[] _columnWidthList;
         private List<double> _rowHeightList = new List<double>();
         private double _currentRowHeight = 0;
+
+        #endregion
 
         protected override Size MeasureOverride(Size availableSize)
         {
@@ -76,6 +93,8 @@ namespace InoPanel
             return finalSize;
         }
 
+
+        #region private methods
 
         private Size SetPanelSize(Size availableSize, Size panelSize, UIElement element, int columns, int currentColumn, double[] columnWidthList, List<double> rowHeightList)
         {
@@ -145,5 +164,7 @@ namespace InoPanel
             Rect arrangeRect = new Rect(horizontalOffset, verticalOffset, element.DesiredSize.Width, element.DesiredSize.Height);
             return arrangeRect;
         }
+
+        #endregion
     }
 }
