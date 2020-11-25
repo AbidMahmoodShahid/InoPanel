@@ -13,13 +13,11 @@ namespace InoPanel
         public static readonly DependencyProperty ColumnsProperty = 
             DependencyProperty.Register(nameof(Columns), typeof(int),
                 typeof(InoPanel), new FrameworkPropertyMetadata(2));
-
         public int Columns
         {
             get { return (int)GetValue(ColumnsProperty); }
             set { SetValue(ColumnsProperty, value); }
         }
-
 
         private Size _panelSize = new Size(0, 0);
         private double[] _columnWidthList;
