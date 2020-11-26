@@ -49,19 +49,26 @@ namespace InoPanel
 
             if (Columns < 1)
                 return new Size(0, 0);
+
+            bool newRow = true;
             
 
             foreach (UIElement element in Children)
             {
-                element.Measure(availableSize); // could be unnecessary
+                element.Measure(availableSize);
 
-                _panelSize = UpdatePanelSize(availableSize, _panelSize, element, Columns, currentColumn, _columnWidthList, _rowHeightList, ElementMargin);
+                _panelSize = UpdatePanelSize(availableSize, _panelSize, element, currentColumn, newRow, _columnWidthList, _rowHeightList, ElementMargin);
 
                 // set current column
                 currentColumn++;
                 if (currentColumn >= Columns)
                 {
+                    newRow = true;
                     currentColumn = 0;
+                }
+                else
+                {
+                    newRow = false;
                 }
             }
 
@@ -102,36 +109,46 @@ namespace InoPanel
 
         #region measure private methods
 
-        private Size UpdatePanelSize(Size availableSize, Size panelSize, UIElement element, int columns, int currentColumn, double[] columnWidthList, List<double> rowHeightList, int elementMargin)
+        private Size UpdatePanelSize(Size availableSize, Size panelSize, UIElement element, int currentColumn, bool newRow, double[] columnWidthList, List<double> rowHeightList, int elementMargin)
         {
-            Size adjustedPanelSize = new Size(0,0);
-            if(columns < 1)
-                return adjustedPanelSize;
+            Size adjustedPanelSize = panelSize;
 
             if (currentColumn < 1)
                 _currentRowHeight = 0;
 
-            element.Measure(availableSize);
-
             // adjust current column width if necessary
-            columnWidthList[currentColumn] = Math.Max(columnWidthList[currentColumn], element.DesiredSize.Width + 2*elementMargin);
+            adjustedPanelSize.Width = AdjustPanelWidth(columnWidthList, currentColumn, element.DesiredSize.Width, elementMargin);
 
             // adjust current row height if necessary
-            _currentRowHeight = Math.Max(_currentRowHeight, element.DesiredSize.Height + 2*elementMargin);
-
-            // adjust panel height
-            if(currentColumn == columns - 1)
-            {
-                // TODO: AM implement height on every item in row based on largest height
-                panelSize.Height += _currentRowHeight;
-                rowHeightList.Add(_currentRowHeight);
-            }
-
-            // adjust panel width
-            panelSize.Width = columnWidthList.Sum();
-            adjustedPanelSize = new Size(panelSize.Width, panelSize.Height);
+            adjustedPanelSize.Height = AdjustPanelHeight(rowHeightList, element.DesiredSize.Height, elementMargin, newRow);
 
             return adjustedPanelSize;
+        }
+
+        private double AdjustPanelWidth(double[] columnWidthList, int currentColumn, double elementDesiredWidth, int elementMargin)
+        {
+            columnWidthList[currentColumn] = Math.Max(columnWidthList[currentColumn], elementDesiredWidth + 2 * elementMargin);
+            return columnWidthList.Sum();
+        }
+
+        private double AdjustPanelHeight(List<double> rowHeightList, double elementDesiredHeight, int elementMargin, bool newRow)
+        {
+            if(newRow)
+            {
+                _currentRowHeight = elementDesiredHeight + 2 * elementMargin;
+                rowHeightList.Add(_currentRowHeight);
+                return rowHeightList.Sum();
+            }
+            else
+            {
+                if(_currentRowHeight < elementDesiredHeight + 2 * elementMargin)
+                {
+                    _currentRowHeight = elementDesiredHeight + 2 * elementMargin;
+                    rowHeightList.RemoveAt(rowHeightList.Count - 1);
+                    rowHeightList.Add(_currentRowHeight);
+                }
+                return rowHeightList.Sum();
+            }
         }
 
         #endregion
