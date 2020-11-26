@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -156,8 +154,18 @@ namespace InoPanel
 
         private Rect SetElementSizeAndPosition(double currentHorizontalOffset, double currentVerticalOffset, double rowHeight, double columnWidth, UIElement element)
         {
-            HorizontalAlignment horizontalAlignment = ((Control)element).HorizontalAlignment;
-            VerticalAlignment verticalAlignment = ((Control)element).VerticalAlignment;
+            HorizontalAlignment horizontalAlignment;
+            VerticalAlignment verticalAlignment;
+            try
+            {
+                horizontalAlignment = ((FrameworkElement)element).HorizontalAlignment;
+                verticalAlignment = ((FrameworkElement)element).VerticalAlignment;
+            }
+            catch
+            {
+                horizontalAlignment = HorizontalAlignment.Stretch;
+                verticalAlignment = VerticalAlignment.Stretch;
+            }
 
             // set horizontal offset
             double x = PositionElementHorizontally(currentHorizontalOffset, columnWidth, element.DesiredSize.Width, horizontalAlignment);
