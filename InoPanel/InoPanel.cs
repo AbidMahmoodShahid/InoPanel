@@ -53,9 +53,9 @@ namespace InoPanel
 
             foreach (UIElement element in Children)
             {
-                element.Measure(availableSize);
+                element.Measure(availableSize); // could be unnecessary
 
-                _panelSize = SetPanelSize(availableSize, _panelSize, element, Columns, currentColumn, _columnWidthList, _rowHeightList, ElementMargin);
+                _panelSize = UpdatePanelSize(availableSize, _panelSize, element, Columns, currentColumn, _columnWidthList, _rowHeightList, ElementMargin);
 
                 // set current column
                 currentColumn++;
@@ -100,9 +100,9 @@ namespace InoPanel
         }
 
 
-        #region private methods
+        #region measure private methods
 
-        private Size SetPanelSize(Size availableSize, Size panelSize, UIElement element, int columns, int currentColumn, double[] columnWidthList, List<double> rowHeightList, int elementMargin)
+        private Size UpdatePanelSize(Size availableSize, Size panelSize, UIElement element, int columns, int currentColumn, double[] columnWidthList, List<double> rowHeightList, int elementMargin)
         {
             Size adjustedPanelSize = new Size(0,0);
             if(columns < 1)
@@ -122,6 +122,7 @@ namespace InoPanel
             // adjust panel height
             if(currentColumn == columns - 1)
             {
+                // TODO: AM implement height on every item in row based on largest height
                 panelSize.Height += _currentRowHeight;
                 rowHeightList.Add(_currentRowHeight);
             }
@@ -132,6 +133,10 @@ namespace InoPanel
 
             return adjustedPanelSize;
         }
+
+        #endregion
+
+        #region arrange private methods
 
         private Rect SetElementSizeAndPosition(double currentHorizontalOffset, double currentVerticalOffset, double rowHeight, double columnWidth, UIElement element)
         {
@@ -145,10 +150,10 @@ namespace InoPanel
             double y = PositionElementVertically(currentVerticalOffset, rowHeight, element.DesiredSize.Height, verticalAlignment);
 
             // set element width
-            double elementWidth = ElementWidth(element, horizontalAlignment, columnWidth);
+            double elementWidth = SetElementWidth(element, horizontalAlignment, columnWidth);
 
             // set element height
-            double elementHeight = ElementHeight(element, verticalAlignment, rowHeight);
+            double elementHeight = SetElementHeight(element, verticalAlignment, rowHeight);
 
             Rect arrangeRect = new Rect(x, y, elementWidth, elementHeight);
             return arrangeRect;
@@ -188,7 +193,7 @@ namespace InoPanel
             }
         }
 
-        private double ElementWidth(UIElement element, HorizontalAlignment horizontalAlignment, double columnWidth)
+        private double SetElementWidth(UIElement element, HorizontalAlignment horizontalAlignment, double columnWidth)
         {
             switch(horizontalAlignment)
             {
@@ -199,7 +204,7 @@ namespace InoPanel
             }
         }
 
-        private double ElementHeight(UIElement element, VerticalAlignment verticalAlignment, double rowHeight)
+        private double SetElementHeight(UIElement element, VerticalAlignment verticalAlignment, double rowHeight)
         {
             switch (verticalAlignment)
             {
@@ -211,5 +216,6 @@ namespace InoPanel
         }
 
         #endregion
+
     }
 }
