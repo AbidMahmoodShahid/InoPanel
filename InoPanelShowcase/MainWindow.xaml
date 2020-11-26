@@ -21,15 +21,15 @@
             Columns="2"
             ElementMargin="5">
 
-            <Button>Button 1</Button>
-            <Button Margin="5">Button 2</Button>
+            <Button VerticalAlignment="Top">Button 1</Button>
+            <Button Margin="10" VerticalAlignment="Top">Button 2</Button>
             <Button>Button 3</Button>
             <Button>Button 4</Button>
-            <Button>Button 5</Button>
-            <Button>Button 6</Button>
-            <Button>Button 7</Button>
-            <Button>Button 8</Button>
-            <Button>Button 9</Button>
+            <Button HorizontalAlignment="Left">Button 5</Button>
+            <Button HorizontalAlignment="Right">Button 6</Button>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 7</Button>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 8</Button>
+            <Button VerticalAlignment="Bottom">Button 9</Button>
 
         </controls:InoPanel>
 
