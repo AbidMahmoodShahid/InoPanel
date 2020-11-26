@@ -18,8 +18,8 @@
         </TextBlock>
         <controls:InoPanel
             Margin="30"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
             Background="DarkGray"
             Columns="2"
             ElementMargin="5">

@@ -188,11 +188,11 @@ namespace InoPanel
             switch(horizontalAlignment)
             {
                 case HorizontalAlignment.Left:
-                    return Xo;
+                    return Xo + ElementMargin;
                 case HorizontalAlignment.Center:
                     return Xo + ((columnWidth - elementWidth) / 2);
                 case HorizontalAlignment.Right:
-                    return Xo + (columnWidth - elementWidth);
+                    return Xo + (columnWidth - elementWidth) - ElementMargin; 
                 case HorizontalAlignment.Stretch:
                     return Xo + ElementMargin;
                 default:
@@ -205,11 +205,11 @@ namespace InoPanel
             switch(verticalAlignment)
             {
                 case VerticalAlignment.Top:
-                    return Yo;
+                    return Yo + ElementMargin;
                 case VerticalAlignment.Center:
                     return Yo + ((rowHeight - elementHeight) / 2);
                 case VerticalAlignment.Bottom:
-                    return Yo + (rowHeight - elementHeight);
+                    return Yo + (rowHeight - elementHeight) - ElementMargin;
                 case VerticalAlignment.Stretch:
                     return Yo + ElementMargin;
                 default:
