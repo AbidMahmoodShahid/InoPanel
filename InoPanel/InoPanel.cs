@@ -44,14 +44,14 @@ namespace InoPanel
 
         protected override Size MeasureOverride(Size availableSize)
         {
-            int currentColumn = 0; 
+            int currentColumn = 0;
+            bool newRow = true;
             _columnWidthList = new double[Columns];
+            _rowHeightList = new List<double>();
+            _panelSize = new Size(0, 0);
 
             if (Columns < 1)
-                return new Size(0, 0);
-
-            bool newRow = true;
-            
+                return new Size(0, 0);   
 
             foreach (UIElement element in Children)
             {
