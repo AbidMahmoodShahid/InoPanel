@@ -18,10 +18,10 @@
         </TextBlock>
         <controls:InoPanel
             Margin="30"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             Background="DarkGray"
-            Columns="2"
+            Columns="1"
             ElementMargin="5">
 
             <Button VerticalAlignment="Top">Button 1</Button>
@@ -34,7 +34,7 @@
             <Label HorizontalAlignment="Center" VerticalAlignment="Center">Label 2</Label>
             <Button VerticalAlignment="Bottom">Button 3</Button>
             <Button VerticalAlignment="Bottom">Button 4</Button>
-            <TextBlock>TextBlock 1</TextBlock>
+            <TextBlock Margin="0,0,0,10">TextBlock 1</TextBlock>
 
         </controls:InoPanel>
 
