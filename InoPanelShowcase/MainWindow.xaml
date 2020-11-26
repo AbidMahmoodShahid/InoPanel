@@ -18,23 +18,18 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="DarkGray"
-            Columns="5"
-            ElementMargin="10">
+            Columns="2"
+            ElementMargin="5">
 
-            <Button
-                Margin="10,10,0,0"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
-                Button 1
-            </Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 2</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 3</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 4</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 5</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 6</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 7</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 8</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 9</Button>
+            <Button>Button 1</Button>
+            <Button Margin="5">Button 2</Button>
+            <Button>Button 3</Button>
+            <Button>Button 4</Button>
+            <Button>Button 5</Button>
+            <Button>Button 6</Button>
+            <Button>Button 7</Button>
+            <Button>Button 8</Button>
+            <Button>Button 9</Button>
 
         </controls:InoPanel>
 

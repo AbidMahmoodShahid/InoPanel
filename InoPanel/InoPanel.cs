@@ -57,9 +57,9 @@ namespace InoPanel
             {
                 element.Measure(availableSize);
 
-                _panelSize = UpdatePanelSize(availableSize, _panelSize, element, currentColumn, newRow, _columnWidthList, _rowHeightList, ElementMargin);
+                _panelSize = UpdatePanelSize(_panelSize, element, currentColumn, newRow, _columnWidthList, _rowHeightList, ElementMargin);
 
-                // set current column
+                // set current column/newrow
                 currentColumn++;
                 if (currentColumn >= Columns)
                 {
@@ -71,7 +71,6 @@ namespace InoPanel
                     newRow = false;
                 }
             }
-
             return _panelSize;
         }
 
@@ -109,7 +108,7 @@ namespace InoPanel
 
         #region measure private methods
 
-        private Size UpdatePanelSize(Size availableSize, Size panelSize, UIElement element, int currentColumn, bool newRow, double[] columnWidthList, List<double> rowHeightList, int elementMargin)
+        private Size UpdatePanelSize(Size panelSize, UIElement element, int currentColumn, bool newRow, double[] columnWidthList, List<double> rowHeightList, int elementMargin)
         {
             Size adjustedPanelSize = panelSize;
 
@@ -120,7 +119,7 @@ namespace InoPanel
             adjustedPanelSize.Width = AdjustPanelWidth(columnWidthList, currentColumn, element.DesiredSize.Width, elementMargin);
 
             // adjust current row height if necessary
-            adjustedPanelSize.Height = AdjustPanelHeight(rowHeightList, element.DesiredSize.Height, elementMargin, newRow);
+            adjustedPanelSize.Height = AdjustPanelHeight(rowHeightList, element.DesiredSize.Height, newRow, elementMargin);
 
             return adjustedPanelSize;
         }
@@ -131,7 +130,7 @@ namespace InoPanel
             return columnWidthList.Sum();
         }
 
-        private double AdjustPanelHeight(List<double> rowHeightList, double elementDesiredHeight, int elementMargin, bool newRow)
+        private double AdjustPanelHeight(List<double> rowHeightList, double elementDesiredHeight, bool newRow, int elementMargin)
         {
             if(newRow)
             {
@@ -187,7 +186,7 @@ namespace InoPanel
                 case HorizontalAlignment.Right:
                     return Xo + (columnWidth - elementWidth);
                 case HorizontalAlignment.Stretch:
-                    return Xo;
+                    return Xo + ElementMargin;
                 default:
                     return Xo + ((columnWidth - elementWidth) / 2);
             }
@@ -204,7 +203,7 @@ namespace InoPanel
                 case VerticalAlignment.Bottom:
                     return Yo + (rowHeight - elementHeight);
                 case VerticalAlignment.Stretch:
-                    return Yo;
+                    return Yo + ElementMargin;
                 default:
                     return Yo + ((rowHeight - elementHeight) / 2);
             }
@@ -215,7 +214,7 @@ namespace InoPanel
             switch(horizontalAlignment)
             {
                 case HorizontalAlignment.Stretch:
-                    return columnWidth;
+                    return columnWidth - 2 * ElementMargin;
                 default:
                     return element.DesiredSize.Width;
             }
@@ -226,7 +225,7 @@ namespace InoPanel
             switch (verticalAlignment)
             {
                 case VerticalAlignment.Stretch:
-                    return rowHeight;
+                    return rowHeight - 2 * ElementMargin;
                 default:
                     return element.DesiredSize.Height;
             }
