@@ -29,6 +29,15 @@ namespace InoPanel
             set { SetValue(ElementMarginProperty, value); }
         }
 
+        public Thickness ElementMarginV2
+        {
+            get { return (Thickness)GetValue(ElementMarginV2Property); }
+            set { SetValue(ElementMarginV2Property, value); }
+        }
+        public static readonly DependencyProperty ElementMarginV2Property =
+            DependencyProperty.Register(nameof(ElementMarginV2), typeof(Thickness),
+                typeof(InoPanel), new UIPropertyMetadata());
+
         #endregion
 
         #region fields

@@ -21,8 +21,9 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="DarkGray"
-            Columns="1"
-            ElementMargin="5">
+            Columns="2"
+            ElementMargin="5"
+            ElementMarginV2="10,20,30,40">
 
             <Button VerticalAlignment="Top">Button 1</Button>
             <Button Margin="10" VerticalAlignment="Top">Button 2</Button>
