@@ -13,21 +13,28 @@
 
     <Grid>
 
+        <TextBlock HorizontalAlignment="Center">
+            Testing Textblock
+        </TextBlock>
         <controls:InoPanel
-            Margin="10"
+            Margin="30"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             Background="DarkGray"
-            Columns="3"
-            ElementMargin="0">
+            Columns="1"
+            ElementMargin="5">
 
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 1</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 2</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 3</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 4</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 5</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 6</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 7</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 8</Button>
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center">Button 9</Button>
+            <Button VerticalAlignment="Top">Button 1</Button>
+            <Button Margin="10" VerticalAlignment="Top">Button 2</Button>
+            <CheckBox HorizontalAlignment="Center" />
+            <CheckBox HorizontalAlignment="Center" />
+            <TextBox HorizontalAlignment="Left">Textbox 1</TextBox>
+            <TextBox HorizontalAlignment="Right">Textbox 2</TextBox>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center">Label 1</Label>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center">Label 2</Label>
+            <Button VerticalAlignment="Bottom">Button 3</Button>
+            <Button VerticalAlignment="Bottom">Button 4</Button>
+            <TextBlock Margin="0,0,0,10">TextBlock 1</TextBlock>
 
         </controls:InoPanel>
 
