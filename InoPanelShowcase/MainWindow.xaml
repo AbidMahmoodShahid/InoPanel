@@ -22,20 +22,30 @@
             VerticalAlignment="Top"
             Background="DarkGray"
             Columns="2"
-            ElementMargin="5"
-            ElementMarginV2="10,20,30,40">
+            ElementMargin="5,0,10,0">
 
-            <Button VerticalAlignment="Top">Button 1</Button>
-            <Button Margin="10" VerticalAlignment="Top">Button 2</Button>
-            <CheckBox HorizontalAlignment="Center" />
-            <CheckBox HorizontalAlignment="Center" />
-            <TextBox HorizontalAlignment="Left">Textbox 1</TextBox>
-            <TextBox HorizontalAlignment="Right">Textbox 2</TextBox>
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center">Label 1</Label>
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center">Label 2</Label>
-            <Button VerticalAlignment="Bottom">Button 3</Button>
-            <Button VerticalAlignment="Bottom">Button 4</Button>
-            <TextBlock Margin="0,0,0,10">TextBlock 1</TextBlock>
+            <Button
+                Width="100"
+                VerticalAlignment="Stretch"
+                BorderBrush="Black"
+                BorderThickness="1">
+                Button 1
+            </Button>
+            <Button BorderBrush="Black" BorderThickness="1">Button 2</Button>
+            <CheckBox BorderBrush="Black" BorderThickness="1" />
+            <CheckBox BorderBrush="Black" BorderThickness="1" />
+            <TextBox Margin="20" BorderBrush="Black" BorderThickness="1">Textbox 1</TextBox>
+            <TextBox BorderBrush="Black" BorderThickness="1">Textbox 2</TextBox>
+            <Label
+                HorizontalAlignment="Center"
+                BorderBrush="Black"
+                BorderThickness="1">
+                Label 1
+            </Label>
+            <Label BorderBrush="Black" BorderThickness="1">Label 2</Label>
+            <Button BorderBrush="Black" BorderThickness="1">Button 3</Button>
+            <Button BorderBrush="Black" BorderThickness="1">Button 4</Button>
+            <TextBlock HorizontalAlignment="Center">TextBlock 1</TextBlock>
 
         </controls:InoPanel>
 
